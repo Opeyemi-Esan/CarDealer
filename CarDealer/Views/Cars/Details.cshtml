@@ -1,0 +1,21 @@
+﻿@model CarDealer.Models.Car
+@{
+    ViewData["Title"] = $"{Model.Make} {Model.Model}";
+}
+<div class="mx-auto px-4 py-20 min-h-screen flex justify-center items-center bg-gray-300">
+    <div class="">
+        <h2 class="text-2xl font-bold mb-4">@Model.Make @Model.Model (@Model.Year)</h2>
+        <div class="flex flex-row justify-center gap-4">
+            <div>
+                <img src="@Model.ImageUrl" alt="@Model.Make @Model.Model" class="w-full h-96 object-cover rounded">
+            </div>
+            <div>
+                <p class="text-xl font-bold mb-2">N @Model.Price</p>
+                <p class="text-gray-600 mb-4">@Model.Description</p>
+                <a href="/Inquiries/Create/@Model.Id" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-all duration-300 ease-in-out">
+                    Submit Inquiry
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

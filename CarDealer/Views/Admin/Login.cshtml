@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Admin Login";
+}
+
+<div class="mx-auto px-4 h-screen overflow-hidden flex justify-center items-center bg-gray-300 shadow-lg">
+    <div class="bg-gray-500 rounded-2xl mx-auto px-20 py-20 shadow-lg bg-opacity-70">
+        <h2 class="text-3xl font-bold mb-8 text-center text-white">Admin Login</h2>
+        @if (ViewBag.Error != null)
+        {
+            <p class="text-red-500 mb-4">@ViewBag.Error</p>
+        }
+
+        <form asp-controller="Admin" asp-action="Login" method="post" class="max-w-m flex flex-col justify-center items-center">
+            <div class="mb-4">
+                <label class="block text-white font-semibold">Username</label>
+                <input type="text" placeholder="Username" name="username" class="w-full px-6 py-2 border rounded focus:outline-none">
+            </div>
+            <div class="mb-4">
+                <label class="block text-white font-semibold">Password</label>
+                <input type="password" placeholder="Password" name="password" class="w-full px-6 py-2 border rounded focus:outline-none">
+            </div>
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-20 w-full rounded-lg transition-all duration-300 ease-in-out">
+                Login
+            </button>
+        </form>
+    </div>
+</div>

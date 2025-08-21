@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Car Dealer</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <!-- Fixed Header -->
+    <header class="fixed top-0 left-0 w-full bg-gray-800 text-white p-4 z-50 shadow-md">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="/" class="text-xl font-bold">Car Dealer</a>
+            <div>
+                <a href="/Cars" class="mr-4 font-semibold hover:text-blue-400">Cars</a>
+                @if (Context.Session.GetString("IsAdmin") == "true")
+                {
+                    <a href="/Admin/UploadCar" class="mr-4 font-semibold hover:text-blue-400">Upload Car</a>
+                    <a href="/Admin/Logout" class="font-semibold hover:text-blue-400">Logout</a>
+                }
+                else
+                {
+                    <a href="/Admin/Login" class="font-semibold hover:text-blue-400">Admin</a>
+                }
+            </div>
+        </nav>
+    </header>
+
+    <!-- Add top padding so content is not hidden behind fixed nav -->
+    <main class="pt-5" >
+        @RenderBody()
+    </main>
+
+    <footer class="bg-gray-800 text-white p-4 text-center">
+        <p>&copy; @DateTime.Now.Year Car Dealer</p>
+    </footer>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
