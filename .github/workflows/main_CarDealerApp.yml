@@ -52,4 +52,4 @@ jobs:
           app-name: 'CarDealerApp'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.__publishingprofilesecretname__ }}
+          publish-profile: ${{ secrets.__OPEYEMI_JOSEPH__ }}
